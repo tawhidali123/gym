@@ -20,5 +20,5 @@ app.set('views', './templates');
 
 
 app.listen(port, host, () =>{
-    console.log(`project connected ${host}:${port}`)
+    console.log(`server running ${host}:${port}`)
 })
