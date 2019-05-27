@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import SearchBar from './components/searchBar/searchbar.jsx';
 import { resolve } from 'path';
 import Map from './components/maps/map.jsx';
-
+import Info from './components/info.jsx';
 
 
 class App extends React.Component {
@@ -66,13 +66,17 @@ class App extends React.Component {
         return (this.state.geoLocation ? <Map
             latitude={this.state.geoLocation.coords.latitude}
             longitude={this.state.geoLocation.coords.longitude}
+            search={this.state.searchValue}
             /> : ''
         )
     }
 
+    renderInfo(){
+        return ()
+    }
+
 
     render() {
-        console.log(this.state)
         return(
             <div>
                 <SearchBar 
@@ -82,6 +86,8 @@ class App extends React.Component {
                 <h1>{this.state.geoLocation ? this.state.geoLocation.coords.latitude : 'waiting....'}</h1>
                 
                 {this.renderMap()}
+
+                {this.renderInfo()}
             </div>
         )
     }
